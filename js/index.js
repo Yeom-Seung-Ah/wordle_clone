@@ -28,6 +28,26 @@ function appStart() {
         clearInterval(timer);
     };
 
+    const youWin = () => {
+        const div = document.createElement("div");
+        div.innerText = "You are genius!";
+        div.style.display = "flex";
+        div.style.justifyContent = "center";
+        div.style.alignItems = "center";
+        div.style.position = "fixed";
+        div.style.width = "30vw";          
+        div.style.height = "30vh";         
+        div.style.backgroundColor = "#F6D7E5"; 
+        div.style.borderRadius = "15px";
+        div.style.color = "#9F6580";          
+        div.style.fontSize = "24px";
+        div.style.fontWeight = "bold";
+        div.style.top = "50%";
+        div.style.left = "50%";
+        div.style.transform = "translate(-50%, -50%)"; // 요소의 절반 크기만큼 이동
+        document.body.appendChild(div);
+    }
+
     const nextLine = () => {
         if (attempts === 6) return gameOver();
         attempts += 1;
@@ -67,7 +87,7 @@ function appStart() {
             block.style.color = "white";
         }
 
-        if ((맞은_갯수 === 5) || (attempts === 5)) gameOver();
+        if ((맞은_갯수 === 5) || (attempts === 5)) youWin();
         else nextLine();
     };
 
